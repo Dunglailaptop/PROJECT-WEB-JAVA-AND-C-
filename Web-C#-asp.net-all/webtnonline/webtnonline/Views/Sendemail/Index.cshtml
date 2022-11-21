@@ -1,0 +1,77 @@
+﻿@model webtnonline.Models.gmail
+@{
+    ViewBag.Title = "Index";
+     Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<div>
+    <style>
+        form {
+            width: 500px;
+            margin-left: 200px;
+            border: 1px solid;
+        }
+    </style>
+    @using (Html.BeginForm("Index", "Sendemail", FormMethod.Post, new {enctype="multipart/form-data"}))
+            {
+                <h1>Thanh toán</h1>
+                <hr/>
+                <table>
+                    <tr>
+                        <td>
+                            Nhập email gửi
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.From)
+                        </td>
+                    </tr>
+                    <tr hidden>
+                        <td>
+                            to
+                        </td>
+                        <td>
+                         
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tiêu đề
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Subject)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nội dung
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(model => model.body, new { rows = "15", cols = "25" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            file ảnh thanh toán
+                        </td>
+                        <td>
+                            <input name="file" type="file" />
+                        </td>
+                    </tr>
+                    <tr>
+                     <style>
+                         .none {
+                          
+                             color: white;
+                             background-color: red;
+                         }
+                     </style>
+                        <td>
+                            <input class="none" style="" value="Xác nhận" type="submit" />
+                        </td>
+                    </tr>
+                   
+                </table>
+            }
+    <h3>@ViewBag.Message</h3>
+</div>
+

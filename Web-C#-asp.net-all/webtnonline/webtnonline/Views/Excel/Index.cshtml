@@ -1,0 +1,16 @@
+﻿
+@{
+    Layout = null;
+}
+
+<br />
+@using (Html.BeginForm("Index", "Excel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <br />
+    <input type="submit" value="Import to database" class="btn btn-primary" />
+}
+<br />
+<div>
+    @ViewBag.Success
+</div>

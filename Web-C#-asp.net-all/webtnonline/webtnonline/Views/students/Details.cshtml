@@ -1,0 +1,99 @@
+﻿@model webtnonline.Models.student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.std_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_MSSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_MSSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hoten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khoa.tenkhoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoa.tenkhoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lop.tenlop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lop.tenlop)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.std_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

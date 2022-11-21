@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webtracnghiemonlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="accadmin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="passwordd" Type="nvarchar" MaxLength="50" />
+    <Property Name="pq" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="cauhoi">
+    <Key>
+      <PropertyRef Name="cauhoi_id" />
+    </Key>
+    <Property Name="cauhoi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cauhoi_text" Type="nvarchar(max)" />
+    <Property Name="QCorrectAns" Type="nvarchar" MaxLength="20" />
+    <Property Name="monhoc_id" Type="int" />
+    <Property Name="dethi_id" Type="int" />
+    <Property Name="dokho_id" Type="int" />
+    <Property Name="QA" Type="nvarchar(max)" />
+    <Property Name="QB" Type="nvarchar(max)" />
+    <Property Name="QC" Type="nvarchar(max)" />
+    <Property Name="QD" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="daymonhoc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="monhoc_id" Type="int" />
+    <Property Name="tea_id" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dethi">
+    <Key>
+      <PropertyRef Name="dethi_id" />
+    </Key>
+    <Property Name="dethi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dethi_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="tea_id" Type="int" />
+    <Property Name="phongthi_id" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ketqua">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="std_id" Type="int" />
+    <Property Name="dethi_id" Type="int" />
+    <Property Name="caudung" Type="int" />
+    <Property Name="diem" Type="float" />
+  </EntityType>
+  <EntityType Name="khoa">
+    <Key>
+      <PropertyRef Name="khoa_id" />
+    </Key>
+    <Property Name="khoa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenkhoa" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="lop">
+    <Key>
+      <PropertyRef Name="lop_id" />
+    </Key>
+    <Property Name="lop_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenlop" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="monhoc">
+    <Key>
+      <PropertyRef Name="monhoc_id" />
+    </Key>
+    <Property Name="monhoc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idadmin" Type="int" />
+    <Property Name="tenmonhoc" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="mucdokho">
+    <Key>
+      <PropertyRef Name="id_dokho" />
+    </Key>
+    <Property Name="id_dokho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tendokho" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="std_id" />
+    </Key>
+    <Property Name="std_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="std_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="std_password" Type="nvarchar" MaxLength="20" />
+    <Property Name="std_image" Type="nvarchar(max)" />
+    <Property Name="std_MSSV" Type="nvarchar" MaxLength="10" />
+    <Property Name="std_SDT" Type="varchar" MaxLength="11" />
+    <Property Name="std_diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="std_email" Type="nvarchar" MaxLength="20" />
+    <Property Name="id_lop" Type="int" />
+    <Property Name="id_khoa" Type="int" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tea_id" />
+    </Key>
+    <Property Name="tea_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tea_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="tea_pass" Type="nvarchar" MaxLength="20" />
+    <Property Name="tea_SDT" Type="varchar" MaxLength="11" />
+    <Property Name="tea_diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="tea_email" Type="nvarchar(max)" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="255" />
+    <Property Name="tea_image" Type="nvarchar(max)" />
+    <Property Name="pq_id" Type="char" MaxLength="5" />
+    <Property Name="accadmin" Type="int" />
+  </EntityType>
+  <Association Name="kp_cauhoi_iddethi">
+    <End Role="dethi" Type="Self.dethi" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dethi">
+        <PropertyRef Name="dethi_id" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="dethi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_cauhoi_iddokho">
+    <End Role="mucdokho" Type="Self.mucdokho" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mucdokho">
+        <PropertyRef Name="id_dokho" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="dokho_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_cauhoi_idmonhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_day_idmonhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
+    <End Role="daymonhoc" Type="Self.daymonhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="daymonhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_day_teacherid">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="daymonhoc" Type="Self.daymonhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tea_id" />
+      </Principal>
+      <Dependent Role="daymonhoc">
+        <PropertyRef Name="tea_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_dethi_teacherid">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="dethi" Type="Self.dethi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tea_id" />
+      </Principal>
+      <Dependent Role="dethi">
+        <PropertyRef Name="tea_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_kq_iddehti">
+    <End Role="dethi" Type="Self.dethi" Multiplicity="0..1" />
+    <End Role="ketqua" Type="Self.ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dethi">
+        <PropertyRef Name="dethi_id" />
+      </Principal>
+      <Dependent Role="ketqua">
+        <PropertyRef Name="dethi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_kq_stdid">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="ketqua" Type="Self.ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="ketqua">
+        <PropertyRef Name="std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_monhoc_accadmin">
+    <End Role="accadmin" Type="Self.accadmin" Multiplicity="0..1" />
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accadmin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="monhoc">
+        <PropertyRef Name="idadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_std_idkhoa">
+    <End Role="khoa" Type="Self.khoa" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khoa">
+        <PropertyRef Name="khoa_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="id_khoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_std_idlop">
+    <End Role="lop" Type="Self.lop" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="id_lop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_tea_accadmin">
+    <End Role="accadmin" Type="Self.accadmin" Multiplicity="0..1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accadmin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="accadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webtracnghiemonlineModelStoreContainer">
+    <EntitySet Name="accadmin" EntityType="Self.accadmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cauhoi" EntityType="Self.cauhoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="daymonhoc" EntityType="Self.daymonhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dethi" EntityType="Self.dethi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ketqua" EntityType="Self.ketqua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="khoa" EntityType="Self.khoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lop" EntityType="Self.lop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mucdokho" EntityType="Self.mucdokho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="kp_cauhoi_iddethi" Association="Self.kp_cauhoi_iddethi">
+      <End Role="dethi" EntitySet="dethi" />
+      <End Role="cauhoi" EntitySet="cauhoi" />
+    </AssociationSet>
+    <AssociationSet Name="kp_cauhoi_iddokho" Association="Self.kp_cauhoi_iddokho">
+      <End Role="mucdokho" EntitySet="mucdokho" />
+      <End Role="cauhoi" EntitySet="cauhoi" />
+    </AssociationSet>
+    <AssociationSet Name="kp_cauhoi_idmonhoc" Association="Self.kp_cauhoi_idmonhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="cauhoi" EntitySet="cauhoi" />
+    </AssociationSet>
+    <AssociationSet Name="kp_day_idmonhoc" Association="Self.kp_day_idmonhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="daymonhoc" EntitySet="daymonhoc" />
+    </AssociationSet>
+    <AssociationSet Name="kp_day_teacherid" Association="Self.kp_day_teacherid">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="daymonhoc" EntitySet="daymonhoc" />
+    </AssociationSet>
+    <AssociationSet Name="kp_dethi_teacherid" Association="Self.kp_dethi_teacherid">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="dethi" EntitySet="dethi" />
+    </AssociationSet>
+    <AssociationSet Name="kp_kq_iddehti" Association="Self.kp_kq_iddehti">
+      <End Role="dethi" EntitySet="dethi" />
+      <End Role="ketqua" EntitySet="ketqua" />
+    </AssociationSet>
+    <AssociationSet Name="kp_kq_stdid" Association="Self.kp_kq_stdid">
+      <End Role="student" EntitySet="student" />
+      <End Role="ketqua" EntitySet="ketqua" />
+    </AssociationSet>
+    <AssociationSet Name="kp_monhoc_accadmin" Association="Self.kp_monhoc_accadmin">
+      <End Role="accadmin" EntitySet="accadmin" />
+      <End Role="monhoc" EntitySet="monhoc" />
+    </AssociationSet>
+    <AssociationSet Name="kp_std_idkhoa" Association="Self.kp_std_idkhoa">
+      <End Role="khoa" EntitySet="khoa" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="kp_std_idlop" Association="Self.kp_std_idlop">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="kp_tea_accadmin" Association="Self.kp_tea_accadmin">
+      <End Role="accadmin" EntitySet="accadmin" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

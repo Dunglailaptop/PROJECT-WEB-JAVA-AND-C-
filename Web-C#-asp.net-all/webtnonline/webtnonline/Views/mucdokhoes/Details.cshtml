@@ -1,0 +1,27 @@
+﻿@model webtnonline.Models.mucdokho
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>mucdokho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tendokho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tendokho)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_dokho }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

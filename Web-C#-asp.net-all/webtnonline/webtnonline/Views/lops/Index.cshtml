@@ -1,0 +1,42 @@
+﻿@model IEnumerable<webtnonline.Models.lop>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:200px;">Quản lý lớp</h2>
+
+<p style="margin-left:200px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="margin-left:200px;margin-right:200px;">
+    <tr>
+        <th>
+            Tên lớp
+        </th>
+        <th>
+            Mã lớp
+        </th>
+        <th>
+            Chỉnh sửa
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenlop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lop_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lop_id }) 
+            
+           
+        </td>
+    </tr>
+}
+
+</table>

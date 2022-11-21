@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b2604c489b64186946c41b5e49ec1c9" Name="Diagram1">
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.accadmin" Width="1.5" PointX="5.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.cauhoi" Width="1.5" PointX="10.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.daymonhoc" Width="1.5" PointX="13.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.dethi" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.ketqua" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.khoa" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.lop" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.monhoc" Width="1.5" PointX="8" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.mucdokho" Width="1.5" PointX="8" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.student" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="webtracnghiemonlineModel.teacher" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_monhoc_accadmin" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_cauhoi_iddethi" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_cauhoi_iddokho" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_cauhoi_idmonhoc" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_day_idmonhoc" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_day_teacherid" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_dethi_teacherid" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_kq_iddehti" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_kq_stdid" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_std_idkhoa" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_std_idlop" ManuallyRouted="false" />
+        <AssociationConnector Association="webtracnghiemonlineModel.kp_tea_accadmin" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

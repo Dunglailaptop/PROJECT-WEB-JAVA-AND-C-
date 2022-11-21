@@ -1,0 +1,91 @@
+﻿@model webtnonline.Models.teacher
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>teacher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hoten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tea_image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tea_image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pq_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pq_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accadmin1.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accadmin1.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tea_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

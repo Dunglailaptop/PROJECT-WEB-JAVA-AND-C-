@@ -1,0 +1,38 @@
+﻿@model IEnumerable<webtnonline.Models.khoa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:200px;">Quản lý khóa học</h2>
+
+<p style="margin-left:200px;">
+    @Html.ActionLink("Tạo khóa học mới", "Create")
+</p>
+<table class="table" style="margin-left:200px;">
+    <tr>
+        <th>
+            Tên khóa
+        </th>
+        <th>Mã khóa</th>
+        <th>Chỉnh sửa</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenkhoa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.khoa_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.khoa_id })
+
+
+        </td>
+    </tr>
+}
+
+</table>

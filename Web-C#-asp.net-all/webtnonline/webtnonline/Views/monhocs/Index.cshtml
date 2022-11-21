@@ -1,0 +1,41 @@
+﻿@model IEnumerable<webtnonline.Models.monhoc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:200px;margin-right:200px;">Quản lý môn học</h2>
+
+<p  style="margin-left:200px;margin-right:200px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="margin-left:200px;margin-right:200px;">
+    <tr>
+        <th>
+            Tên môn học
+        </th>
+        <th>
+            Mã môn học
+        </th>
+        <th>
+            Chỉnh sửa
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenmonhoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monhoc_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.monhoc_id })
+
+        </td>
+    </tr>
+}
+
+</table>

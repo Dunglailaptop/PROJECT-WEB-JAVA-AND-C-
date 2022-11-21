@@ -1,0 +1,80 @@
+﻿@model IEnumerable<webtnonline.Models.teacher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:100px;">Quản lý giáo viên</h2>
+<style>
+    th {
+       
+   
+    }
+    td{
+         
+            
+    }
+</style>
+<p style="margin-left:100px;">
+    @Html.ActionLink("Thêm giáo viên", "Create")
+</p>
+<table class="table" style="
+   
+    width: 90%;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-bottom:50px;">
+    <tr>
+        <th>
+           Tên tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            SDT
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            email
+        </th>
+        <th>
+            Họ và tên giáo viên
+        </th>
+    
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tea_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tea_pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tea_SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tea_diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tea_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hoten)
+        </td>
+     
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.tea_id }) |
+           
+            @Html.ActionLink("Delete", "Delete", new { id=item.tea_id })
+        </td>
+    </tr>
+}
+
+</table>

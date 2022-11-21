@@ -1,0 +1,40 @@
+﻿@model IEnumerable<webtnonline.Models.mucdokho>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:200px;margin-right:200px;">Quản lý mức độ khó của câu hỏi</h2>
+
+<p style="margin-left:200px;margin-right:200px;"> 
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="margin-left:200px;margin-right:200px;">
+    <tr>
+        <th>
+            tên mức độ khó
+        </th>
+        <th>
+            Mã mức độ khó
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tendokho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_dokho)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_dokho }) 
+         
+      
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Dashbroad</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-2-md-2 col-sm-2 col-xs-2" style="height:900px;border:1px solid gray;background-color:dimgrey">
+
+            <div class="list-group">
+                <div class="list-group-item">
+                    @Html.ActionLink("de thi", "dethi", "Home")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("hoc sinh", "Index", "students")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("cau hoi", "cauhoi", "Home")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("giao vien", "Index", "teachers")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("khoa", "Index", "khoas")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("mon hoc", "Index", "monhocs")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("lop", "Index", "lops")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("muc do kho", "Index", "mucdokhoes")
+                </div>
+                <div class="list-group-item">
+                    @Html.ActionLink("ket qua", "Index", "ketquas")
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10-md-10 col-sm-10 col-xs-10" style="height:900px;border:1px solid gray">
+            @RenderBody()
+        </div>
+
+    </div>
+    <p>@ViewBag</p>
+</body>
+</html>

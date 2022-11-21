@@ -1,0 +1,87 @@
+﻿
+@model webtnonline.Models.student
+@{
+    ViewBag.Title = "slogin";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        @ViewBag.Title
+    </title>
+    <link rel="stylesheet" href="/Assets/css/style.min.css">
+    <link rel="stylesheet" href="/Assets/css/materialize.min.css">
+
+    <script src="/Assets/js/materialize.min.js"></script>
+</head>
+
+<body class="bg-login">
+    <div id="status" class="status"></div>
+    <div class="fade">
+        <div class="login fadeInLogin">
+            <h4 class="title-login">
+                Đăng ký
+            </h4>
+
+          
+                <div class="login-form">
+                    <div class="row" style="position: relative;">
+
+
+                        @if (ViewBag.msg != null)
+                        {
+                            <span class="title failed">
+
+                                @ViewBag.msg
+
+                            </span>
+                        }
+
+                        @using (@Html.BeginForm("sregister", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="input-field">
+                                @Html.TextBoxFor(x => x.std_name, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="username">Tài Khoản</label>
+                            </div>
+                            <div class="input-field">
+                                @Html.PasswordFor(x => x.std_password, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="password">Mật Khẩu</label>
+                            </div>
+                            <div class="input-field">
+                                @Html.TextBoxFor(x => x.std_MSSV, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="username">MSSV</label>
+                            </div>
+                            <div class="input-field">
+                                @Html.TextBoxFor(x => x.std_SDT, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="username">SDT</label>
+                            </div>
+                            <div class="input-field">
+                                @Html.TextBoxFor(x => x.std_diachi, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="username">Địa chỉ</label>
+                            </div>
+                            <div class="input-field">
+                                @Html.TextBoxFor(x => x.std_email, htmlAttributes: new { @class = "form-control p_input" })
+                                <label for="username">email</label>
+                            </div>
+                            <div class="login-btn">
+                                <button type="submit" class="btn waves-effect waves-light green darken-4">Đăng ký</button>
+                            </div>
+
+                        }
+                        <p class="sign-up">You have a Account?<a href="/Home/slogin">Trở về đăng nhập</a></p>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
+

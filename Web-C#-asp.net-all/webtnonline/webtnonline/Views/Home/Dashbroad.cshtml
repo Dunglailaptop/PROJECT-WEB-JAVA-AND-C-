@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "Dashbroad";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+
+
+<div class="content row col s12 reset-margin">
+
+    @if (Session["ad"] != null)
+    {
+        <div class="col s6 m4 l3">
+            <a href="">
+                <div class="dashboard-inner-item">
+                    <div class="left-item">
+                        <i class="fa fa-user fa-2x"></i>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item-top">
+
+                        </div>
+                        <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                            Quản Trị Viên
+                        </div>
+                    </div><div class="clear"></div>
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m4 l3">
+            <a href="/teachers/Index">
+                <div class="dashboard-inner-item">
+                    <div class="left-item">
+                        <i class="fa fa-user fa-2x"></i>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item-top">
+
+                        </div>
+                        <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                            Giảng Viên
+                        </div>
+                    </div><div class="clear"></div>
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m4 l3">
+            <a href="/monhocs/Index">
+                <div class="dashboard-inner-item">
+                    <div class="left-item">
+                        <i class="fa fa-book fa-2x"></i>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item-top">
+
+                        </div>
+                        <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                            Môn
+                        </div>
+                    </div><div class="clear"></div>
+                </div>
+            </a>
+        </div>
+    }
+
+    <div class="col s6 m4 l3">
+        <a href="/students/Index">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-user fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                        Sinh Viên
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    <div class="col s6 m4 l3">
+        <a href="/khoas/Index">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-archive fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                        Khóa
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    <div class="col s6 m4 l3">
+        <a href="/mucdokhoes/Index">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-archive fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                        Mức độ khó
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    <div class="col s6 m4 l3">
+        <a href="/lops/Index">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-archive fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                        Lớp
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    @*<div class="col s6 m4 l3">
+            <a href="">
+                <div class="dashboard-inner-item">
+                    <div class="left-item">
+                        <i class="fa fa-book fa-2x"></i>
+                    </div>
+                    <div class="right-item">
+                        <div class="right-item-top">
+
+                        </div>
+                        <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                            Ngành
+                        </div>
+                    </div><div class="clear"></div>
+                </div>
+            </a>
+        </div>*@
+
+    <div class="col s6 m4 l3">
+        <a href="/Home/cauhoi">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-question fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 34px">
+                        Câu Hỏi
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    <div class="col s6 m4 l3">
+        <a href="/Home/dethi">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-hourglass fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 40px">
+                        Bài Thi
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+    <div class="col s6 m4 l3">
+        <a href="/ketquas/Index">
+            <div class="dashboard-inner-item">
+                <div class="left-item">
+                    <i class="fa fa-hourglass fa-2x"></i>
+                </div>
+                <div class="right-item">
+                    <div class="right-item-top">
+
+                    </div>
+                    <div class="right-item-bottom" style=" margin-top: 30px; font-size: 40px">
+                        Kết quả thi
+                    </div>
+                </div><div class="clear"></div>
+            </div>
+        </a>
+    </div>
+</div>
+

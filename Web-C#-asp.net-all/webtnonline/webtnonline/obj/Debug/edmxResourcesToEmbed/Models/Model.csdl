@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webtracnghiemonlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="accadmin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="passwordd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="monhocs" Relationship="Self.kp_monhoc_accadmin" FromRole="accadmin" ToRole="monhoc" />
+    <NavigationProperty Name="teachers" Relationship="webtracnghiemonlineModel.kp_tea_accadmin" FromRole="accadmin" ToRole="teacher" />
+    <Property Name="pq" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cauhoi">
+    <Key>
+      <PropertyRef Name="cauhoi_id" />
+    </Key>
+    <Property Name="cauhoi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cauhoi_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QCorrectAns" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="monhoc_id" Type="Int32" />
+    <Property Name="dethi_id" Type="Int32" />
+    <Property Name="dokho_id" Type="Int32" />
+    <Property Name="QA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="dethi" Relationship="Self.kp_cauhoi_iddethi" FromRole="cauhoi" ToRole="dethi" />
+    <NavigationProperty Name="mucdokho" Relationship="Self.kp_cauhoi_iddokho" FromRole="cauhoi" ToRole="mucdokho" />
+    <NavigationProperty Name="monhoc" Relationship="Self.kp_cauhoi_idmonhoc" FromRole="cauhoi" ToRole="monhoc" />
+  </EntityType>
+  <EntityType Name="daymonhoc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="monhoc_id" Type="Int32" />
+    <Property Name="tea_id" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="monhoc" Relationship="Self.kp_day_idmonhoc" FromRole="daymonhoc" ToRole="monhoc" />
+    <NavigationProperty Name="teacher" Relationship="Self.kp_day_teacherid" FromRole="daymonhoc" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="dethi">
+    <Key>
+      <PropertyRef Name="dethi_id" />
+    </Key>
+    <Property Name="dethi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dethi_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tea_id" Type="Int32" />
+    <Property Name="phongthi_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cauhois" Relationship="Self.kp_cauhoi_iddethi" FromRole="dethi" ToRole="cauhoi" />
+    <NavigationProperty Name="teacher" Relationship="Self.kp_dethi_teacherid" FromRole="dethi" ToRole="teacher" />
+    <NavigationProperty Name="ketquas" Relationship="Self.kp_kq_iddehti" FromRole="dethi" ToRole="ketqua" />
+  </EntityType>
+  <EntityType Name="ketqua">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="std_id" Type="Int32" />
+    <Property Name="dethi_id" Type="Int32" />
+    <Property Name="caudung" Type="Int32" />
+    <Property Name="diem" Type="Double" />
+    <NavigationProperty Name="dethi" Relationship="Self.kp_kq_iddehti" FromRole="ketqua" ToRole="dethi" />
+    <NavigationProperty Name="student" Relationship="Self.kp_kq_stdid" FromRole="ketqua" ToRole="student" />
+  </EntityType>
+  <EntityType Name="khoa">
+    <Key>
+      <PropertyRef Name="khoa_id" />
+    </Key>
+    <Property Name="khoa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenkhoa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="students" Relationship="Self.kp_std_idkhoa" FromRole="khoa" ToRole="student" />
+  </EntityType>
+  <EntityType Name="lop">
+    <Key>
+      <PropertyRef Name="lop_id" />
+    </Key>
+    <Property Name="lop_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenlop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="students" Relationship="Self.kp_std_idlop" FromRole="lop" ToRole="student" />
+  </EntityType>
+  <EntityType Name="monhoc">
+    <Key>
+      <PropertyRef Name="monhoc_id" />
+    </Key>
+    <Property Name="monhoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenmonhoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idadmin" Type="Int32" />
+    <NavigationProperty Name="accadmin" Relationship="Self.kp_monhoc_accadmin" FromRole="monhoc" ToRole="accadmin" />
+    <NavigationProperty Name="cauhois" Relationship="Self.kp_cauhoi_idmonhoc" FromRole="monhoc" ToRole="cauhoi" />
+    <NavigationProperty Name="daymonhocs" Relationship="Self.kp_day_idmonhoc" FromRole="monhoc" ToRole="daymonhoc" />
+  </EntityType>
+  <EntityType Name="mucdokho">
+    <Key>
+      <PropertyRef Name="id_dokho" />
+    </Key>
+    <Property Name="id_dokho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tendokho" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cauhois" Relationship="Self.kp_cauhoi_iddokho" FromRole="mucdokho" ToRole="cauhoi" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="std_id" />
+    </Key>
+    <Property Name="std_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="std_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="std_password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="std_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="std_MSSV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="std_SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="std_diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="std_email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="id_lop" Type="Int32" />
+    <Property Name="id_khoa" Type="Int32" />
+    <Property Name="hoten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ketquas" Relationship="Self.kp_kq_stdid" FromRole="student" ToRole="ketqua" />
+    <NavigationProperty Name="khoa" Relationship="Self.kp_std_idkhoa" FromRole="student" ToRole="khoa" />
+    <NavigationProperty Name="lop" Relationship="Self.kp_std_idlop" FromRole="student" ToRole="lop" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tea_id" />
+    </Key>
+    <Property Name="tea_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tea_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tea_pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tea_SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="tea_diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tea_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hoten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="tea_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pq_id" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="daymonhocs" Relationship="Self.kp_day_teacherid" FromRole="teacher" ToRole="daymonhoc" />
+    <NavigationProperty Name="dethis" Relationship="Self.kp_dethi_teacherid" FromRole="teacher" ToRole="dethi" />
+    <Property Name="accadmin" Type="Int32" />
+    <NavigationProperty Name="accadmin1" Relationship="webtracnghiemonlineModel.kp_tea_accadmin" FromRole="teacher" ToRole="accadmin" />
+  </EntityType>
+  <Association Name="kp_monhoc_accadmin">
+    <End Role="accadmin" Type="Self.accadmin" Multiplicity="0..1" />
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accadmin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="monhoc">
+        <PropertyRef Name="idadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_cauhoi_iddethi">
+    <End Role="dethi" Type="Self.dethi" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dethi">
+        <PropertyRef Name="dethi_id" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="dethi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_cauhoi_iddokho">
+    <End Role="mucdokho" Type="Self.mucdokho" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mucdokho">
+        <PropertyRef Name="id_dokho" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="dokho_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_cauhoi_idmonhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
+    <End Role="cauhoi" Type="Self.cauhoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="cauhoi">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_day_idmonhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
+    <End Role="daymonhoc" Type="Self.daymonhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="daymonhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_day_teacherid">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="daymonhoc" Type="Self.daymonhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tea_id" />
+      </Principal>
+      <Dependent Role="daymonhoc">
+        <PropertyRef Name="tea_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_dethi_teacherid">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="0..1" />
+    <End Role="dethi" Type="Self.dethi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tea_id" />
+      </Principal>
+      <Dependent Role="dethi">
+        <PropertyRef Name="tea_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_kq_iddehti">
+    <End Role="dethi" Type="Self.dethi" Multiplicity="0..1" />
+    <End Role="ketqua" Type="Self.ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dethi">
+        <PropertyRef Name="dethi_id" />
+      </Principal>
+      <Dependent Role="ketqua">
+        <PropertyRef Name="dethi_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_kq_stdid">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="ketqua" Type="Self.ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="std_id" />
+      </Principal>
+      <Dependent Role="ketqua">
+        <PropertyRef Name="std_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_std_idkhoa">
+    <End Role="khoa" Type="Self.khoa" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khoa">
+        <PropertyRef Name="khoa_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="id_khoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kp_std_idlop">
+    <End Role="lop" Type="Self.lop" Multiplicity="0..1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="id_lop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webtracnghiemonlineEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accadmins" EntityType="Self.accadmin" />
+    <EntitySet Name="cauhois" EntityType="Self.cauhoi" />
+    <EntitySet Name="daymonhocs" EntityType="Self.daymonhoc" />
+    <EntitySet Name="dethis" EntityType="Self.dethi" />
+    <EntitySet Name="ketquas" EntityType="Self.ketqua" />
+    <EntitySet Name="khoas" EntityType="Self.khoa" />
+    <EntitySet Name="lops" EntityType="Self.lop" />
+    <EntitySet Name="monhocs" EntityType="Self.monhoc" />
+    <EntitySet Name="mucdokhoes" EntityType="Self.mucdokho" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="teachers" EntityType="Self.teacher" />
+    <AssociationSet Name="kp_monhoc_accadmin" Association="Self.kp_monhoc_accadmin">
+      <End Role="accadmin" EntitySet="accadmins" />
+      <End Role="monhoc" EntitySet="monhocs" />
+    </AssociationSet>
+    <AssociationSet Name="kp_cauhoi_iddethi" Association="Self.kp_cauhoi_iddethi">
+      <End Role="dethi" EntitySet="dethis" />
+      <End Role="cauhoi" EntitySet="cauhois" />
+    </AssociationSet>
+    <AssociationSet Name="kp_cauhoi_iddokho" Association="Self.kp_cauhoi_iddokho">
+      <End Role="mucdokho" EntitySet="mucdokhoes" />
+      <End Role="cauhoi" EntitySet="cauhois" />
+    </AssociationSet>
+    <AssociationSet Name="kp_cauhoi_idmonhoc" Association="Self.kp_cauhoi_idmonhoc">
+      <End Role="monhoc" EntitySet="monhocs" />
+      <End Role="cauhoi" EntitySet="cauhois" />
+    </AssociationSet>
+    <AssociationSet Name="kp_day_idmonhoc" Association="Self.kp_day_idmonhoc">
+      <End Role="monhoc" EntitySet="monhocs" />
+      <End Role="daymonhoc" EntitySet="daymonhocs" />
+    </AssociationSet>
+    <AssociationSet Name="kp_day_teacherid" Association="Self.kp_day_teacherid">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="daymonhoc" EntitySet="daymonhocs" />
+    </AssociationSet>
+    <AssociationSet Name="kp_dethi_teacherid" Association="Self.kp_dethi_teacherid">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="dethi" EntitySet="dethis" />
+    </AssociationSet>
+    <AssociationSet Name="kp_kq_iddehti" Association="Self.kp_kq_iddehti">
+      <End Role="dethi" EntitySet="dethis" />
+      <End Role="ketqua" EntitySet="ketquas" />
+    </AssociationSet>
+    <AssociationSet Name="kp_kq_stdid" Association="Self.kp_kq_stdid">
+      <End Role="student" EntitySet="students" />
+      <End Role="ketqua" EntitySet="ketquas" />
+    </AssociationSet>
+    <AssociationSet Name="kp_std_idkhoa" Association="Self.kp_std_idkhoa">
+      <End Role="khoa" EntitySet="khoas" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="kp_std_idlop" Association="Self.kp_std_idlop">
+      <End Role="lop" EntitySet="lops" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="kp_tea_accadmin" Association="webtracnghiemonlineModel.kp_tea_accadmin">
+      <End Role="accadmin" EntitySet="accadmins" />
+      <End Role="teacher" EntitySet="teachers" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="kp_tea_accadmin">
+    <End Type="webtracnghiemonlineModel.accadmin" Role="accadmin" Multiplicity="0..1" />
+    <End Type="webtracnghiemonlineModel.teacher" Role="teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accadmin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="accadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,148 @@
+﻿
+@model IEnumerable<webtnonline.Models.cauhoi>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>startquiz</title>
+</head>
+<body>
+    <div style="
+          margin-left:300px;
+          margin-right:300px;
+    ">
+        <div>
+            <div class="form-group" style="
+      background-color: blue;
+      color: red;
+      font-size: bold; padding-left: 250px;
+      flex-wrap: nowarp;
+
+}">
+                <h1>Đề thi:  @Session["tendethi"] </h1>
+                <h1>Mã đề:  @Session["made"]</h1>
+                <h1>Số lượng câu hỏi:@Session["soluong"]</h1>
+                <h1>thời gian thi: <input type="submit" value="bắt đầu thi" style=" width: 149px; height: 30px; background-color: green; color: white; font-size: 25px;" /></h1>
+                <h1 id="timer">00:00</h1>
+                <script>
+                    var timer;
+                    var ele = document.getElementById('timer');
+                    (function () {
+                        var sec = 0;
+                        timer = setInterval(() => {
+                            ele.innerHTML = '00:' + sec;
+                            sec++;
+                        }, 1000)
+                    })()
+                    function pause() {
+                        clearInterval(timer);
+                    }
+                </script>
+            </div>
+        </div>
+        <form action="/Home/startquiz" method="post">
+            @{int i = 0, A = 0,cau=1; }
+            @foreach (var item in Model)
+            {
+                <div class="form-horizontal">
+
+                    <hr />
+
+                    <div class="form-group">
+
+                        <div class="col-md-10" style="display:flex;">
+                          <h1>@(cau++)</h1> <h1>.</h1> <h1>@item.cauhoi_text</h1>
+
+                        </div>
+                    </div>
+                    <div hidden class="form-group">
+
+                        <div class="col-md-10">
+                            <input type="text" value="@item.dethi_id" name="dethi" />
+
+                        </div>
+                    </div>
+                    <div hidden class="form-group">
+
+                        <div class="col-md-10">
+
+                            <input type="text" value="@item.cauhoi_id" name="id" />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+
+                            <input type="checkbox" onclick="onChoiceChange(this)" id="Choice1" name="A" value="[@i]A" /><label>@item.QA</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+
+                            <input type="checkbox" onclick="onChoiceChange(this)" id="Choice2" name="B" value="[@i]B" /><label>@item.QB</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+
+                            <input type="checkbox" onclick="onChoiceChange(this)" id="Choice3" name="C" value="[@i]C" /><label>@item.QC</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+
+                            <input type="checkbox" onclick="onChoiceChange(this)" id="Choice4" name="D" value="[@i]D" /><label>@item.QD</label>
+                        </div>
+                    </div>
+                    <div class="form-group" hidden>
+
+                        <div class="col-md-10">
+
+                            <input type="text" name="caudung" readonly value="[@A]@item.QCorrectAns" />@item.QCorrectAns
+                        </div>
+                    </div>
+                </div>
+                <div hidden>
+
+                    @(i++)
+                    @(A++)
+                </div>
+
+
+            }
+            <input type="submit" onclick="pause()" value="nộp bài" class="btn btn-default" style="margin-left:250px;margin-right:250px;margin-top:50px;width:500px;height:50px;color:white;background-color:green;margin-bottom:50px;" />
+        </form>
+    </div> 
+
+    @*}*@
+    @*<div class="form-group">
+
+            <div class="col-md-10">
+                @for (int i = 1; i < 10; i++)
+                {
+                    <input type="radio" name="caudung"  /><label>dung</label>
+                 }
+
+                <input type="radio" name="caudung" readonly /> phone
+                <input type="radio" name="caudung" readonly /> sdt
+            </div>
+        </div>*@
+
+
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+</body>
+
+
+</html>

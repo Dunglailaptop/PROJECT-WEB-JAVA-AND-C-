@@ -1,0 +1,51 @@
+﻿@model webtnonline.Models.ketqua
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ketqua</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.caudung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.caudung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dethi.dethi_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dethi.dethi_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.std_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.std_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

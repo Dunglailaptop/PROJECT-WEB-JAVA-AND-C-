@@ -1,0 +1,65 @@
+﻿@model IEnumerable<webtnonline.Models.cauhoi>
+
+@{
+    ViewBag.Title = "viewAllquestion";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:50px;">Danh sách câu hỏi</h2>
+
+
+<table class="table" >
+    <tr>
+        <th>
+           Nội dung câu hỏi
+        </th>
+        <th>
+            Câu A
+        </th>
+        <th>
+            Câu B
+        </th>
+        <th>
+            Câu C
+        </th>
+        <th>
+            Câu D
+        </th>
+        <th>
+            Câu Đúng
+        </th>
+        <th>
+           Đề thi
+        </th>
+      
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cauhoi_text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QCorrectAns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dethi.dethi_name)
+            </td>
+           
+        </tr>
+    }
+       <a href="/Home/dethi" style="margin-left:50px; background-color:green;color:white">Back to</a>
+</table>

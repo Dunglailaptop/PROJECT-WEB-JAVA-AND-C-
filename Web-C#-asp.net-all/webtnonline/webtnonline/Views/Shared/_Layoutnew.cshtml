@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+
+    </title>
+    <link rel="stylesheet" href="~/Content/Assets/css/normalize.css">
+    <link rel="stylesheet" href="~/Content/Assets/css/style.min.css">
+    <link rel="stylesheet" href="~/Content/Assets/css/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/Assets/css/materialize.min.css">
+    <link rel="stylesheet" href="~/Content/Assets/DataTables/css/jquery.dataTables.css">
+
+    <script src="~/Content/Assets/js/materialize.min.js"></script>
+    <script src="~/Content/Assets/DataTables/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper nav-green">
+                @if (Session["tea"] != null)
+                {
+                    <a href="/Home/Dashbroad" class="brand-logo cursor left"><i class="material-icons">home</i></a>
+                }
+                @if (Session["std_id"] != null)
+                {
+                    
+                    <a style="position:absolute;z-index:1;" href="/Menu/student" class="brand-logo cursor left"><i class="material-icons">home</i></a>
+
+                }
+                @if (Session["std_id"] != null)
+                {
+                    <a href="/TMDT/Index" class="brand-logo cursor"><i class="glyphicon-shopping-cart" style="margin-left: 50px; display: flex; align-items: center; background-color: red;"><h5 style=" color: gold; margin-right: 10px; border: 1px solid;">NEW</h5>Mua đề thi ôn tập</i></a>
+                }
+                @if (Session["ad"] != null)
+                {
+                    <a href="/Home/Dashbroad" class="brand-logo cursor left"><i class="material-icons">home</i></a>
+                }
+                <div class="right">
+                    @if (@Session["std_id"] != null)
+                    {
+                        <span class="title">Xin chào:  @Session["namestudent"]</span>
+                    }
+                    @if (@Session["std_id"] != null)
+                    {
+                        <a href="/Home/logout">Đăng xuất</a>
+                    }
+                    @if (Session["tea"] != null)
+                    {
+                        <span class="title">Xin chào:  @Session["tea_name"]</span>
+                    }
+                    @if (Session["tea"] != null)
+                    {
+                        <a href="/Home/logout">Đăng xuất</a>
+                    }
+
+                    @if (Session["ad"] != null)
+                    {
+                        <span class="title">Xin chào:  @Session["ad-main"]</span>
+                    }
+                    <input type="checkbox" id="check">
+                    <style>
+                        #check:checked ~ .dropdown-content {
+                            display: block;
+                            opacity: 1;
+                            margin-left: 150px;
+                            margin-top: -20px;
+                        }
+                    </style>
+                    @if (Session["ad"] != null)
+                    {
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn-menu' href='#' data-target='dropdown-menu'>Chức Năng<label for="check"><span class="material-icons">arrow_drop_down</span></label></a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown-menu' class='dropdown-content'>
+
+                            <li><a href=""><i class="material-icons">account_box</i>Quản Lý Admin</a></li>
+                            <li><a href="/teachers/Index"><i class="material-icons">assignment_ind</i>Quản Lý Giảng Viên</a></li>
+                            <li><a href="/students/Index"><i class="material-icons">group</i>Quản Lý Sinh Viên</a></li>
+                            <li><a href="/khoas/Index"><i class="material-icons">assignment</i>Quản Lý Khóa/Lớp</a></li>
+                            <li><a href="/mucdokhoes/Index"><i class="material-icons">assignment</i>Quản Lý Mức độ khó</a></li>
+                            <li><a href="/ketquas/Index"><i class="material-icons">assignment</i>Quản Lý kết quả thi</a></li>
+                            <li><a href="/monhocs/Index"><i class="material-icons">collections_bookmark</i>Quản Lý Môn Học</a></li>
+                            <li><a href="/Home/cauhoi"><i class="material-icons">format_align_left</i>Quản Lý Câu Hỏi</a></li>
+                            <li><a href="/Home/dethi"><i class="material-icons">event_available</i>Quản Lý Bài Thi</a></li>
+                            <li><a href="/Home/logout">Đăng xuất<i class="material-icons">close</i></a></li>
+                            <li class="divider" tabindex="-1"></li>
+
+
+                        </ul>
+                    }
+                </div>
+                <div class="clear"></div>
+            </div>
+        </nav>
+    </div>
+    <div class="title-content">
+        <span class="title">Trang chủ</span>
+    </div>
+    @RenderBody()
+</body>
+</html>

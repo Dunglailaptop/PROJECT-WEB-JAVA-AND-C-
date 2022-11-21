@@ -1,0 +1,36 @@
+﻿@model webtnonline.Models.ketqua
+@{
+   
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>endEXAM</title>
+</head>
+<body>
+    <div hidden>
+        <h1 style="text-align:center;">end of test</h1>
+        @*@using (Html.BeginForm("endEXAM", "Home", FormMethod.Post))
+        {*@
+    <h2 style="text-align:center;">
+        you score is @TempData["score"] AND @TempData["count"] and
+        @TempData["caudung"] dethi  @TempData["examid"]
+    </h2>
+            @*@Html.TextBoxFor(x => x.diem==Convert.ToInt32(TempData["score"]))
+            @Html.TextBoxFor(x=>x.caudung==Convert.ToInt32(TempData["caudung"]))*@
+            <input type="submit" value="get ket qua" />
+        @*}*@
+
+    </div>
+    <div style="margin-left:600px;margin-right:100px;">
+        <h1> Đã nộp bài thành công</h1>
+        <a href="/Menu/student">trở về trang chủ</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+﻿@model webtnonline.Models.cauhoi
+
+@{
+    ViewBag.Title = "cauhoi";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+
+<div style="margin-left:200px; margin-right:200px;">
+    <h4>Thêm câu hỏi mới</h4>
+    @using (Html.BeginForm("Index", "Excel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" />
+        <br />
+        <input type="submit" value="Import to database" class="btn btn-primary" />
+    }
+    @ViewBag.Success
+
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="margin-left:200px; margin-right:200px;">
+      
+        <br />
+
+        <br />
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h4>Mã đề thi</h4>
+            <div class="col-md-10">
+                <style>
+                    .form-control {
+                        display: block;
+                        border: 1px solid;
+                    }
+
+                    label.control-label.col-md-2 {
+                        font-size: 25px;
+                        color: black;
+                    }
+                </style>
+                @Html.DropDownList("dethi_id", ViewData["dethi"] as SelectList, "--Select--", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.dethi_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Mã môn học</h4>
+            <div class="col-md-10">
+                @Html.DropDownList("monhoc_id", ViewData["monhoc"] as SelectList, "--Select--", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.monhoc_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Mức độ khó</h4>
+            <div class="col-md-10">
+                @Html.DropDownList("dokho_id", ViewData["mucdokho"] as SelectList, "--Select--", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.dokho_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Nội dung câu hỏi</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cauhoi_text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cauhoi_text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Nội dung câu hỏi A</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Nội dung câu hỏi B</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Nội dung câu hỏi C</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Nội dung câu hỏi D</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Câu trả lời chính xác</h4>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QCorrectAns, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QCorrectAns, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.monhoc_id, "monhoc_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("monhoc_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.monhoc_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.dethi_id, "dethi_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("dethi_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.dethi_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.dokho_id, "dokho_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("dokho_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.dokho_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

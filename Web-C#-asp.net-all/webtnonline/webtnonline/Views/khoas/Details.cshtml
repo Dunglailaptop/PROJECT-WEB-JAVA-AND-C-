@@ -1,0 +1,27 @@
+﻿@model webtnonline.Models.khoa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>khoa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenkhoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkhoa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.khoa_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

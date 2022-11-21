@@ -1,0 +1,52 @@
+﻿@model IEnumerable<webtnonline.Models.ketqua>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<h2 style="margin-left:100px;margin-right:100px;">Quản lý kết quả thi</h2>
+
+
+<table class="table" style="margin-left:100px;margin-right:100px;">
+    <tr>
+        <th>
+            Số câu đúng
+        </th>
+        <th>
+            Điểm thi
+        </th>
+        <th>
+         Đề thi
+        </th>
+        <th>
+           Tên sinh viên
+        </th>
+        <th>
+            Chỉnh sửa
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.caudung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dethi.dethi_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.student.std_name)
+        </td>
+        <td>
+           
+         
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

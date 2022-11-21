@@ -1,0 +1,58 @@
+﻿@model webtnonline.Models.dethi
+@{
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+
+@if (ViewBag.error != null)
+{
+    <div class="alert alert-danger">
+        <strong>danger!</strong> @ViewBag.error
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="container">
+        <br />
+        <br />
+        <h1 style="text-align:center;">Enter room name</h1>
+        <input type="text" id="" name="room" placeholder="room name" class="form-control" />
+        <br />
+        <br />
+        <input type="submit" value="submit" class="btn btn-danger btn-info" />
+    </div>
+}
+
+
+
+<div>
+    @*<table class="table table-responsive">
+        <thead>
+            <tr>
+               
+                <th>Name</th>
+                <th>teacher</th>
+                <th>Room name</th>
+                <th>join room</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewData["dethisv"] as List<webtnonline.Models.dethi>)
+            {
+                <tr>
+                   
+                    <td>@item.dethi_name</td>
+                    <td>@item.tea_id</td>
+                    <td>@item.phongthi_id</td>
+                    <td><a class="btn btn-info btn-sm" href="@Url.Action("viewAllquestion", new {id=@item.dethi_id})"></a>view question of this exam</td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>*@
+</div>
+

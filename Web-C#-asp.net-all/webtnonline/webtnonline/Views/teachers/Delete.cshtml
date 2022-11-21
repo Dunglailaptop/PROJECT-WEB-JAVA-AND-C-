@@ -1,0 +1,67 @@
+﻿@model webtnonline.Models.teacher
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+<div style="margin-left:100px;margin-right:100px;">
+   
+
+    <h3>Bạn có muốn xóa giáo viên bên dưới</h3>
+    <div>
+     
+        <hr />
+        <dl class="dl-horizontal" style=""> 
+
+           
+
+            <dt>
+               SDT:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tea_SDT)
+            </dd>
+
+            <dt>
+             Địa chỉ:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tea_diachi)
+            </dd>
+
+            <dt>
+               Email:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tea_email)
+            </dd>
+
+            <dt>
+              Họ và tên giáo viên:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.hoten)
+            </dd>
+
+          
+
+           
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>
+

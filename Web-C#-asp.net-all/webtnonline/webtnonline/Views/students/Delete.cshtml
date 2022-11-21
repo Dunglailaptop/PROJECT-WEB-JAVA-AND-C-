@@ -1,0 +1,86 @@
+﻿@model webtnonline.Models.student
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+
+<h3 style="margin-left:50px;margin-right:100px;">Bạn có muốn xóa ?</h3>
+<div>
+   
+    
+    <dl class="dl-horizontal" style="margin-left:100px;margin-right:50px;">
+       
+
+        
+
+       
+
+        <dt>
+            Mã số sinh viên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_MSSV)
+        </dd>
+
+        <dt>
+           SDT:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_SDT)
+        </dd>
+
+        <dt>
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_diachi)
+        </dd>
+
+        <dt>
+            Email:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_email)
+        </dd>
+
+        <dt>
+            Họ và tên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+           Tên khóa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoa.tenkhoa)
+        </dd>
+
+        <dt>
+            Lớp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lop.tenlop)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin-left:100px;">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
